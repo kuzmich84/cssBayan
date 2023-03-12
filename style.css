@@ -18,7 +18,7 @@
   
   h2 {
     color: #2c48cf;
-    font-size: 18px;
+    font-size: 1em;
   }
   
   .container {
@@ -62,6 +62,17 @@
     padding: 1em;
   }
   
+  .accordeon-list li:hover .accordeon-content img {
+    width: 100%;
+  }
+  
+  .accordeon-input:checked ~ .accordeon-content img {
+    width: 100%;
+    animation-name: Appearance;
+    animation-duration: 0.7s;
+    animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 0);
+  }
+  
   .accordeon-content img {
     width: 100%;
     animation-name: Appearance;
@@ -72,7 +83,7 @@
   @keyframes Appearance {
     0% {
       opacity: 0;
-      width: 95%;
+      width: 0%;
     }
     100% {
       opacity: 1;
@@ -81,11 +92,12 @@
   }
   
   .accordeon-icon {
-    display: none;
+      stroke: #000;
   }
   
   .accordeon-list:hover .accordeon-icon {
     display: block;
+    stroke: #000;
   }
   
   .accordeon-input:checked + .accordeon-header > .accordeon-icon svg {
@@ -97,7 +109,6 @@
     color: #000;
   }
   
-  
   .accordeon-list li:active .accordeon-content img {
     width: 105%;
     opacity: 0.5;
@@ -106,6 +117,10 @@
   
   .accordeon-list li:active .accordeon-header h2 {
     color: #2c48cf;
+  }
+  
+  .accordeon-list li:active .accordeon-icon svg {
+    stroke: #2c48cf;
   }
   
   .accordeon-input:checked ~ .accordeon-content {
@@ -121,22 +136,30 @@
     transform: rotate(180deg);
   }
   
+  .accordeon-icon {
+      display: none;
+  }
+  
   @media (min-width: 768px) {
     .container {
-      width: 50%;
+      width: 40%;
       margin: 0 auto;
     }
   
     h2 {
-      font-size: 24px;
+      font-size: 1.3em;
     }
   
     .accordeon-label {
       cursor: pointer;
     }
   
-    .accordeon-content img {
-      width: 50%;
+    .accordeon-list li:hover .accordeon-content img {
+      width: 60%;
+    }
+  
+    .accordeon-input:checked ~ .accordeon-content img {
+      width: 60%;
       animation-name: Appearance;
       animation-duration: 0.7s;
       animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 0);
@@ -145,16 +168,50 @@
     @keyframes Appearance {
       0% {
         opacity: 0;
-        width: 45%;
+        width: 0%;
       }
       100% {
         opacity: 1;
-        width: 50%;
+        width: 60%;
       }
     }
   
     .accordeon-list li:active .accordeon-content img {
-      width: 55%;
+      width: 65%;
+      opacity: 0.5;
+      transition: all 0.5s;
+    }
+  }
+  
+  @media (min-width: 1919px) {
+  
+    .accordeon-list li:hover .accordeon-content img {
+      width: 30%;
+    }
+    h2 {
+      font-size: 1.5em;
+    }
+  
+    .accordeon-input:checked ~ .accordeon-content img {
+      width: 30%;
+      animation-name: Appearance;
+      animation-duration: 0.7s;
+      animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 0);
+    }
+  
+    @keyframes Appearance {
+      0% {
+        opacity: 0;
+        width: 0%;
+      }
+      100% {
+        opacity: 1;
+        width: 30%;
+      }
+    }
+  
+    .accordeon-list li:active .accordeon-content img {
+      width: 35%;
       opacity: 0.5;
       transition: all 0.5s;
     }
