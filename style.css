@@ -1,0 +1,162 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  
+  h2 {
+    color: #2c48cf;
+    font-size: 18px;
+  }
+  
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .accordeon-list {
+    list-style: none;
+    margin-top: 2em;
+  }
+  
+  .accordeon-list li {
+    padding: 1em;
+  }
+  
+  .accordeon-list li:first-child {
+    border-top: 0.1em solid #ababab;
+  }
+  
+  .accordeon-list li:not(:last-child) {
+    border-bottom: 0.1em solid #ababab;
+  }
+  
+  .accordeon-header {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .accordeon-input {
+    position: absolute;
+    width: 0.1em;
+    height: 0.1em;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+  
+  .accordeon-content {
+    display: none;
+    justify-content: center;
+    padding: 1em;
+  }
+  
+  .accordeon-content img {
+    width: 100%;
+    animation-name: Appearance;
+    animation-duration: 0.7s;
+    animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 0);
+  }
+  
+  @keyframes Appearance {
+    0% {
+      opacity: 0;
+      width: 95%;
+    }
+    100% {
+      opacity: 1;
+      width: 100%;
+    }
+  }
+  
+  .accordeon-icon {
+    display: none;
+  }
+  
+  .accordeon-list:hover .accordeon-icon {
+    display: block;
+  }
+  
+  .accordeon-input:checked + .accordeon-header > .accordeon-icon svg {
+    transform: rotate(180deg);
+  }
+  
+  .accordeon-input:checked + .accordeon-header h2,
+  .accordeon-list:hover .accordeon-header h2 {
+    color: #000;
+  }
+  
+  
+  .accordeon-list li:active .accordeon-content img {
+    width: 105%;
+    opacity: 0.5;
+    transition: all 0.5s;
+  }
+  
+  .accordeon-list li:active .accordeon-header h2 {
+    color: #2c48cf;
+  }
+  
+  .accordeon-input:checked ~ .accordeon-content {
+    display: flex;
+  }
+  
+  .accordeon-list li:hover .accordeon-content {
+    display: flex;
+  }
+  
+  .accordeon-list li:hover .accordeon-icon svg {
+    transition: all 0.3s;
+    transform: rotate(180deg);
+  }
+  
+  @media (min-width: 768px) {
+    .container {
+      width: 50%;
+      margin: 0 auto;
+    }
+  
+    h2 {
+      font-size: 24px;
+    }
+  
+    .accordeon-label {
+      cursor: pointer;
+    }
+  
+    .accordeon-content img {
+      width: 50%;
+      animation-name: Appearance;
+      animation-duration: 0.7s;
+      animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 0);
+    }
+  
+    @keyframes Appearance {
+      0% {
+        opacity: 0;
+        width: 45%;
+      }
+      100% {
+        opacity: 1;
+        width: 50%;
+      }
+    }
+  
+    .accordeon-list li:active .accordeon-content img {
+      width: 55%;
+      opacity: 0.5;
+      transition: all 0.5s;
+    }
+  }
+  
